@@ -24,6 +24,7 @@ class _MySplashState extends State<MySplash> {
             color: Color(0xFFE99600),
           )),
       image: Image.asset('assets/cat.png'),
+      photoSize: 50,
       backgroundColor: Colors.black,
       loaderColor: Color(0xFFEEDA28),
     );
