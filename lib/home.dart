@@ -71,7 +71,8 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 width : MediaQuery.of(context).size.width,
-                child: Column(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(onTap: pickImage,
                     child: Container(
@@ -87,7 +88,9 @@ class _HomeState extends State<Home> {
                         style: TextStyle(color: Colors.white,)),
                     ),
                     ),
-
+                    SizedBox(
+                      width:20
+                    ),
                     GestureDetector(onTap: pickGalleryImage,
                       child: Container(
                         width : MediaQuery.of(context).size.width -260,
@@ -98,7 +101,7 @@ class _HomeState extends State<Home> {
                           color: Color(0xFFE99600),
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: Text('Cammera Roll',
+                        child: Text('Camera Roll',
                             style: TextStyle(color: Colors.white,)),
                       ),
                     ),
