@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   final  picker = ImagePicker();
     late File _image;
     bool _loading = false;
+     late List _output;
 
   pickImage() async {
     var image = await picker.getImage(source: ImageSource.camera);
@@ -25,6 +26,7 @@ class _HomeState extends State<Home> {
      setState(() {
        _image = File(image.path);
      });
+    classifyImage(_image);
   }
 
 
@@ -36,6 +38,8 @@ class _HomeState extends State<Home> {
     setState(() {
       _image = File(image.path);
     });
+
+    classifyImage(_image);
   }
 
 
@@ -58,6 +62,12 @@ class _HomeState extends State<Home> {
 
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(path: image.path, numResults: 2, threshold: 0.5, imageMean: 127.5, imageStd: 127.5);
+
+
+    setState((){
+      _loading = false;
+      _output = output!;
+    });
   }
 
 
