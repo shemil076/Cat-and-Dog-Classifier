@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,6 +11,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  final  picker = ImagePicker();
+    late File _image;
+
+  pickImage() async {
+    var image = await picker.getImage(source: ImageSource.camera);
+
+     if (image == null) return null;
+
+     setState(() {
+       _image = File(image.path);
+     });
+  }
+
+
+  pickGalleryImage() async {
+    var image = await picker.getImage(source: ImageSource.gallery);
+
+    if (image == null) return null;
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +69,42 @@ class _HomeState extends State<Home> {
                     ),
                 ),
               ),
+              Container(
+                width : MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    GestureDetector(onTap: pickImage,
+                    child: Container(
+                      width : MediaQuery.of(context).size.width -260,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 17),
+                      decoration:  BoxDecoration(
+                        color: Color(0xFFE99600),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                        child: Text('Take a photo',
+                        style: TextStyle(color: Colors.white,)),
+                    ),
+                    ),
+
+                    GestureDetector(onTap: pickGalleryImage,
+                      child: Container(
+                        width : MediaQuery.of(context).size.width -260,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 17),
+                        decoration:  BoxDecoration(
+                          color: Color(0xFFE99600),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text('Cammera Roll',
+                            style: TextStyle(color: Colors.white,)),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ));
