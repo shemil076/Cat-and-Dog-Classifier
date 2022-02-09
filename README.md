@@ -15,3 +15,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # Cat-and-Dog-Classifier
+
+
+![Screenshot_1644397181](https://user-images.githubusercontent.com/85215233/153161122-69b3184f-3e9d-407c-824a-f73821b4d9b7.png)
+![Screenshot_1644397183](https://user-images.githubusercontent.com/85215233/153161129-67b5818b-17c2-4814-8b78-6bed127fee98.png)
