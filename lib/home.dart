@@ -81,18 +81,19 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               SizedBox(height: 100),
               Text(
-                'Teachable machine CNN',
+                'Detect Dogs and Cats',
                 style: TextStyle(
-                  color: Color(0xFFEEDA28),
-                  fontSize: 15,
+                  color: Color(0xFFE99600),
+                  fontSize: 28,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(height: 6),
-              Text('Detect Dogs and Cats',
+              Text('powered by CNN',
                   style: TextStyle(
-                      color: Color(0xFFE99600),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 28)),
+                      color: Color(0xFFEEDA28),
+
+                      fontSize: 15)),
               SizedBox(height: 50),
               Center(
                 child: _loading
